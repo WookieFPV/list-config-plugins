@@ -1,5 +1,7 @@
 {
   "name": "list-config-plugins",
+  "version": "0.0.1",
+  "description": "find available expo config plugins and see if their already used",
   "author": {
     "name": "WookieFPV (Lukas Müller)",
     "url": "github.com/WookieFPV"
