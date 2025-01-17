@@ -1,0 +1,19 @@
+{
+  "name": "list-config-plugins",
+  "author": {
+    "name": "WookieFPV (Lukas Müller)",
+    "url": "github.com/WookieFPV"
+  },
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "5.7.3"
+  },
+  "dependencies": {
+    "@expo/config": "^10.0.8",
+    "cli-table3": "0.6.5"
+  }
+}
