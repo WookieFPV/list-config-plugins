@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import type {ExpoCfg} from "./types.ts";
+import type { ExpoCfg } from "./types";
 
 export const isPluginUsed = (config: ExpoCfg, pkg: string) =>
     config.exp.plugins?.some(

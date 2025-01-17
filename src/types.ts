@@ -1,4 +1,4 @@
-import {getConfig} from "@expo/config";
+import { getConfig } from "@expo/config";
 
 export type PackageInfo = { name: string; used: boolean }
 
