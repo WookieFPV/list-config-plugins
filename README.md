@@ -1,8 +1,21 @@
 # list-config-plugins
 
-See if packages have expo config plugins available and if you are using them.
+A CLI tool to identify and display Expo config plugins available in your project dependencies.
 
-## Example Output:
+## Overview
+
+This package helps you manage your Expo config plugins by showing which dependencies have available plugins and whether they're currently being used in your project.
+
+## Usage
+
+Simply run the command in your Expo project directory:
+
+
+```bash
+npx list-config-plugins
+```
+
+### Example Output
 
 ```bash
   > npx list-config-plugins
@@ -19,18 +32,25 @@ Unused packages:
 🟥  expo-camera
 🟥  expo-dev-client
 🟥  expo-file-system
-
 ```
 
+## Features
 
-- Supports all types of expo configs
+- 🔍 Scans your project for available Expo config plugins
+- ✅ Shows which plugins are currently in use
+- ❌ Identifies unused available plugins
+- 📦 Supports all types of Expo configurations
 
-How it works:
+## How It Works
 
-1. If checks what packages you are using in your project (using information from expo)
-2. Check if you are using expo config plugins
+1. Analyzes your project dependencies to identify packages with Expo config plugins
+2. Checks which config plugins are being used in your Expo configuration
 
+## Roadmap
 
-## Todo:
-- \[ \] Monorepo support (might already work, not tested)
-- \[ \] add support for more package managers (might also already work, not tested)
+- [ ] Monorepo support (might already work, not tested)
+- [ ] Additional package manager support (might already work, not tested)
+
+## Support
+
+If you encounter any issues or have questions, please file an issue on the GitHub repository.

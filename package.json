@@ -6,6 +6,7 @@
     "name": "WookieFPV (Lukas Müller)",
     "url": "github.com/WookieFPV"
   },
+  "license": "MIT",
   "module": "index",
   "type": "module",
   "bin": {
