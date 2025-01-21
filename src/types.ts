@@ -1,6 +1,8 @@
 import { getConfig } from "@expo/config";
 
-export type PackageInfo = { name: string; used: boolean }
+export type UsageType = "yes" | "auto" | "no"
+
+export type PackageInfo = { name: string; used: UsageType }
 
 export type ExpoCfg = ReturnType<typeof getConfig>
 

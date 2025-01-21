@@ -1,26 +1,37 @@
-import Table from "cli-table3";
-import type { PackageInfo } from "./types";
-
-export const printPackagesTable = (data: PackageInfo[]) => {
-    const table = new Table({head: ['used', 'package'], colAligns: ['center', 'left']});
-    table.push(...sortPackages(data).map(({name, used}) => [used ? '🟩 ' : '🟥 ', name]));
-
-    console.log('Config Plugin Overview:');
-    console.log(table.toString())
-}
-
-export const printPackagesRaw = (packages: PackageInfo[]) => {
-    console.log('\nConfig Plugin Overview');
-
-    const usedPackages = packages.filter((pkg) => pkg.used);
-    console.log('\nUsed packages:\n' + usedPackages.map((pkg) => `🟩  ${pkg.name}`).join('\n'));
-
-    const unusedPackages = packages.filter((pkg) => !pkg.used);
-    console.log('\nUnused packages:\n' + unusedPackages.map((pkg) => `🟥  ${pkg.name}`).join('\n'));
-};
+import type { PackageInfo, UsageType } from "./types";
 
 const sortPackages = (packages: PackageInfo[]) => {
-    const usedPackages = packages.filter((pkg) => pkg.used);
-    const unusedPackages = packages.filter((pkg) => !pkg.used);
-    return [...usedPackages, ...unusedPackages];
+    const usedPackages = packages.filter((pkg) => pkg.used === "yes");
+    const autoPackages = packages.filter((pkg) => pkg.used === "auto")
+    const unusedPackages = packages.filter((pkg) => pkg.used === "no");
+    return [...usedPackages, ...autoPackages, ...unusedPackages];
 }
+
+const emojiMapping: Record<UsageType, string> = {
+    yes: "🟩",
+    auto: "📦",
+    no: "🟥"
+}
+
+const packageToString = (pkg: PackageInfo) => `${emojiMapping[pkg.used]}  ${pkg.name}`
+
+export const printPackagesRaw = (packages: PackageInfo[]) => {
+    console.log('Config Plugin Overview:');
+
+    const usedPackages = packages.filter((pkg) => pkg.used === "yes");
+    if (usedPackages.length) {
+        console.log('\nUsed Plugins:\n' + usedPackages.map((pkg) => packageToString(pkg)).join('\n'));
+    }
+
+    const autoPackages = packages.filter((pkg) => pkg.used === "auto");
+    if (autoPackages.length) {
+        console.log('\nBundled with Expo:\n' + autoPackages.map((pkg) => packageToString(pkg)).join('\n'));
+    }
+
+    const unusedPackages = packages.filter((pkg) => pkg.used === "no");
+    if (unusedPackages.length) {
+        console.log('\nUnused Plugins:\n' + unusedPackages.map((pkg) => packageToString(pkg)).join('\n'));
+    }
+
+};
+

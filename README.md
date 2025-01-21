@@ -19,27 +19,30 @@ npx list-config-plugins
 
 ```bash
   > npx list-config-plugins
-Config Plugin Overview
+Config Plugin Overview:
 
-Used packages:
+Used Plugins:
 🟩  expo-notifications
 🟩  expo-screen-orientation
 🟩  expo-splash-screen
 🟩  react-native-compressor
 
-Unused packages:
+Bundled with Expo:
+📦  expo-camera
+📦  expo-dev-client
+📦  expo-file-system
+
+Unused Plugins:
 🟥  @sentry/react-native
-🟥  expo-camera
-🟥  expo-dev-client
-🟥  expo-file-system
 ```
 
 ## Features
 
 - 🔍 Scans your project for available Expo config plugins
 - ✅ Shows which plugins are currently in use
+- 📦 Shows which plugins are automatically added by expo
 - ❌ Identifies unused available plugins
-- 📦 Supports all types of Expo configurations
+- ⚙️ Supports all types of Expo configurations
 
 ## How It Works
 
