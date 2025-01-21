@@ -42,18 +42,17 @@ Unused Plugins:
 - ✅ Shows which plugins are currently in use
 - 📦 Shows which plugins are automatically added by expo
 - ❌ Identifies unused available plugins
-- ⚙️ Supports all types of Expo configurations
+- ⚙️ Supports all types of Expo configurations & Monorepos
 
 ## How It Works
 
 1. Analyzes your project dependencies to identify packages with Expo config plugins
 2. Checks which config plugins are being used in your Expo configuration
 
-## Roadmap
+## Monorepo Support
 
-- [ ] Monorepo support (might already work, not tested)
-- [ ] Additional package manager support (might already work, not tested)
+Monorepos should work, this depends on where your config plugin are placed.
+This package will search for config plugins in `./node_modules` and walk up the folder structure (`../node_modules`, `../../node_modules`, ...).
+If your config plugins are there it should work.
 
-## Support
 
-If you encounter any issues or have questions, please file an issue on the GitHub repository.

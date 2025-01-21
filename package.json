@@ -1,7 +1,7 @@
 {
   "name": "list-config-plugins",
-  "version": "0.0.2",
-  "description": "find available expo config plugins and see if their already used",
+  "version": "1.0.0",
+  "description": "find available expo config plugins and see if they are used",
   "author": {
     "name": "WookieFPV (Lukas Müller)",
     "url": "github.com/WookieFPV"
@@ -21,13 +21,11 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
+    "@types/bun": "latest",
     "typescript": "5.7.3"
   },
   "dependencies": {
-    "@expo/config": "^10.0.8",
-    "@expo/prebuild-config": "^8.0.25"
+    "@expo/config": "*",
+    "@expo/prebuild-config": "*"
   }
 }

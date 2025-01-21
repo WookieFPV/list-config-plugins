@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import type { ExpoCfg, ExpoPlugin, UsageType } from "./types";
 import { getLegacyExpoPlugins } from "@expo/prebuild-config";
+import { findNodeModuleFolders } from "./findNodeModules";
 
 const isPluginIncludedUsed = (pluginList: ExpoPlugin, pkg: string) =>
      pluginList?.some(
@@ -22,5 +23,6 @@ export const getPluginImportType = (config: ExpoCfg, pkg: string): UsageType => 
     return "no"
 }
 
+const nodeModulesFolders = findNodeModuleFolders()
 
-export const hasConfigPlugin = (pkg: string) => fs.existsSync(`node_modules/${pkg}/app.plugin.js`);
+export const hasConfigPlugin = (pkg: string) => nodeModulesFolders.some(path => fs.existsSync(`${path}/${pkg}/app.plugin.js`))
