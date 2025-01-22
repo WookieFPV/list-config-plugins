@@ -1,4 +1,4 @@
-import { hasConfigPlugin, getPluginImportType } from "./detectionHelpers.js";
+import { getPluginImportType, hasConfigPlugin } from "./detectionHelpers.js";
 import type { ExpoCfg } from "./types.js";
 
 export const getPackagePluginList = (config: ExpoCfg,) => {

@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export const findNodeModuleFolders = ()=> {
+export const findNodeModuleFolders = () => {
     let currentPath = process.cwd();
     const nodeModulesPaths: string[] = [];
 

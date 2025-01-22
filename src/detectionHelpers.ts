@@ -4,7 +4,7 @@ import { getLegacyExpoPlugins } from "@expo/prebuild-config";
 import { findNodeModuleFolders } from "./findNodeModules.js";
 
 const isPluginIncludedUsed = (pluginList: ExpoPlugin, pkg: string) =>
-     pluginList?.some(
+    pluginList?.some(
         (plugin) => {
             if (typeof plugin === 'string' && plugin.startsWith(pkg)) return true
             if (plugin[0] === pkg) return true
