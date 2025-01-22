@@ -6,6 +6,15 @@
     "name": "WookieFPV (Lukas Müller)",
     "url": "github.com/WookieFPV"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WookieFPV/list-config-plugins"
+  },
+  "keywords": [
+    "expo",
+    "react-native",
+    "prebuild"
+  ],
   "license": "MIT",
   "module": "index",
   "type": "module",
