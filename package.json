@@ -1,6 +1,6 @@
 {
   "name": "list-config-plugins",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "find available expo config plugins and see if they are used",
   "author": {
     "name": "WookieFPV (Lukas Müller)",
@@ -18,7 +18,8 @@
   ],
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepack": "bun run typecheck && bun run build"
   },
   "devDependencies": {
     "@types/bun": "latest",
