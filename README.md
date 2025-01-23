@@ -8,7 +8,7 @@ This package helps you manage your Expo config plugins by showing which dependen
 
 ## Usage
 
-Simply run the command in your Expo project directory:
+Simply run the package using npx in your Expo project directory:
 
 
 ```bash
@@ -46,13 +46,13 @@ Unused Plugins:
 
 ## How It Works
 
-1. Analyzes your project dependencies to identify packages with Expo config plugins
-2. Checks which config plugins are being used in your Expo configuration
+1. Analyzes your project dependencies to identify packages with Expo config plugins.
+2. Checks which config plugins are being used in your Expo configuration.
 
 ## Monorepo Support
 
 Monorepos should work, this depends on where your config plugin are placed.
 This package will search for config plugins in `./node_modules` and walk up the folder structure (`../node_modules`, `../../node_modules`, ...).
-If your config plugins are there it should work.
+If your config plugins are there, it should work.
 
 
