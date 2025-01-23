@@ -1,4 +1,4 @@
-# list-config-plugins
+# list-config-plugins [![npm][npm-image]][npm-url]
 
 A CLI tool to identify and display Expo config plugins available in your project dependencies.
 
@@ -55,4 +55,5 @@ Monorepos should work, this depends on where your config plugin are placed.
 This package will search for config plugins in `./node_modules` and walk up the folder structure (`../node_modules`, `../../node_modules`, ...).
 If your config plugins are there, it should work.
 
-
+[npm-image]: https://img.shields.io/npm/v/list-config-plugins
+[npm-url]: https://www.npmjs.com/package/list-config-plugins
