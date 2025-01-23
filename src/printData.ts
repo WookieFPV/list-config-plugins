@@ -1,37 +1,32 @@
 import type { PackageInfo, UsageType } from "./types";
 
-const sortPackages = (packages: PackageInfo[]) => {
-    const usedPackages = packages.filter((pkg) => pkg.used === "yes");
-    const autoPackages = packages.filter((pkg) => pkg.used === "auto")
-    const unusedPackages = packages.filter((pkg) => pkg.used === "no");
-    return [...usedPackages, ...autoPackages, ...unusedPackages];
-}
-
 const emojiMapping: Record<UsageType, string> = {
     yes: "🟩",
     auto: "📦",
-    no: "🟥"
-}
-
-const packageToString = (pkg: PackageInfo) => `${emojiMapping[pkg.used]}  ${pkg.name}`
-
-export const printPackagesRaw = (packages: PackageInfo[]) => {
-    console.log('Config Plugin Overview:');
-
-    const usedPackages = packages.filter((pkg) => pkg.used === "yes");
-    if (usedPackages.length) {
-        console.log('\nUsed Plugins:\n' + usedPackages.map((pkg) => packageToString(pkg)).join('\n'));
-    }
-
-    const autoPackages = packages.filter((pkg) => pkg.used === "auto");
-    if (autoPackages.length) {
-        console.log('\nBundled with Expo:\n' + autoPackages.map((pkg) => packageToString(pkg)).join('\n'));
-    }
-
-    const unusedPackages = packages.filter((pkg) => pkg.used === "no");
-    if (unusedPackages.length) {
-        console.log('\nUnused Plugins:\n' + unusedPackages.map((pkg) => packageToString(pkg)).join('\n'));
-    }
-
+    no: "🟥",
 };
 
+const labelMapping: Record<UsageType, string> = {
+    yes: "Used Plugins:",
+    auto: "Bundled with Expo:",
+    no: "Unused Plugins:",
+};
+
+const printGroup = (packages: PackageInfo[], group: UsageType) => {
+    const usedPackages = packages.filter((pkg) => pkg.used === group);
+    if (!usedPackages.length) return;
+    console.log(`\n${labelMapping[group]}`);
+    console.log(usedPackages.map((pkg) => `${emojiMapping[pkg.used]}  ${pkg.name}`).join("\n"));
+};
+
+export const printPackages = (packages: PackageInfo[]) => {
+    if (!packages.length) {
+        console.log("Found no config plugins!");
+        return;
+    }
+
+    console.log("Config Plugin Overview:");
+    printGroup(packages, "yes");
+    printGroup(packages, "auto");
+    printGroup(packages, "no");
+};

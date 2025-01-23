@@ -1,6 +1,6 @@
 {
   "name": "list-config-plugins",
-  "version": "1.0.1",
+  "version": "1.0.2-beta.0",
   "description": "find available expo config plugins and see if they are used",
   "author": {
     "name": "WookieFPV (Lukas Müller)",
@@ -10,32 +10,32 @@
     "type": "git",
     "url": "https://github.com/WookieFPV/list-config-plugins"
   },
-  "keywords": [
-    "expo",
-    "react-native",
-    "prebuild"
-  ],
+  "keywords": ["expo", "react-native", "prebuild"],
   "license": "MIT",
   "module": "index",
   "type": "module",
   "bin": {
-    "list-config-plugins": "./bin.js"
+    "list-config-plugins": "./dist/bin.js"
   },
-  "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+  "main": "dist/bin.js",
+  "files": ["dist"],
   "scripts": {
-    "build": "rm -rf dist && tsc",
-    "typecheck": "tsc --noEmit",
-    "prepack": "bun run typecheck && bun run build"
+    "build": "tsup",
+    "build:dev": "tsup --watch",
+    "lint": "bunx biome check --fix",
+    "lint:CI": "bunx biome check",
+    "typecheck": "tsc",
+    "prepack": "bun run lint:CI && tsc  && bun run build"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/bun": "latest",
+    "tsup": "^8.3.5",
     "typescript": "5.7.3"
   },
   "dependencies": {
     "@expo/config": "*",
-    "@expo/prebuild-config": "*"
+    "@expo/prebuild-config": "*",
+    "commander": "^13.1.0"
   }
 }

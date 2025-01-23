@@ -12,5 +12,4 @@ export const findNodeModuleFolders = () => {
         currentPath = path.dirname(currentPath);
     }
     return nodeModulesPaths;
-}
-
+};
