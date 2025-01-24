@@ -13,3 +13,5 @@ export const findNodeModuleFolders = () => {
     }
     return nodeModulesPaths;
 };
+
+export const nodeModulesFolders = findNodeModuleFolders();

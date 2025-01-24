@@ -1,14 +1,15 @@
 # list-config-plugins [![npm][npm-image]][npm-url]
 
-A CLI tool to identify and display Expo config plugins available in your project dependencies.
+A CLI tool to find Expo config plugins available in your project dependencies.
 
 ## Overview
 
-This package helps you manage your Expo config plugins by showing which dependencies have available plugins and whether they're currently being used in your project.
+This package helps you manage your Expo config plugins by showing which dependencies have available plugins and whether they're currently being used in your project.\
+Works on Expo & bare React-Native Apps (without Expo)
 
 ## Usage
 
-Simply run the package using npx in your Expo project directory:
+Simply run the package using npx in your App directory:
 
 
 ```bash
@@ -39,10 +40,11 @@ Unused Plugins:
 ## Features
 
 - 🔍 Scans your project for available Expo config plugins
-- ✅ Shows which plugins are currently in use
+- 🟩 Shows which plugins are currently in use
 - 📦 Shows which plugins are automatically added by expo
-- ❌ Identifies unused available plugins
-- ⚙️ Supports all types of Expo configurations & Monorepos
+- 🟥 Identifies unused available plugins
+- 🌐 Finds config plugins provided by [expo @config-plugins/](https://github.com/expo/config-plugins)
+- ⚙️ Supports all types of React-Native & Expo configurations & Monorepos
 
 ## How It Works
 
@@ -51,9 +53,9 @@ Unused Plugins:
 
 ## Monorepo Support
 
-Monorepos should work, this depends on where your config plugin are placed.
+Monorepos should work, this depends on where your config plugins are placed.
 This package will search for config plugins in `./node_modules` and walk up the folder structure (`../node_modules`, `../../node_modules`, ...).
-If your config plugins are there, it should work.
+If your config plugins are there, it should work. (run with --debug to see where it is searching)
 
 [npm-image]: https://img.shields.io/npm/v/list-config-plugins
 [npm-url]: https://www.npmjs.com/package/list-config-plugins

@@ -4,19 +4,21 @@ const emojiMapping: Record<UsageType, string> = {
     yes: "🟩",
     auto: "📦",
     no: "🟥",
+    noButThirdParty: "🟥",
 };
 
 const labelMapping: Record<UsageType, string> = {
     yes: "Used Plugins:",
     auto: "Bundled with Expo:",
     no: "Unused Plugins:",
+    noButThirdParty: "Without bundled config Plugin but with third party config plugin:",
 };
 
 const printGroup = (packages: PackageInfo[], group: UsageType) => {
-    const usedPackages = packages.filter((pkg) => pkg.used === group);
+    const usedPackages = packages.filter((pkg) => pkg.usage === group);
     if (!usedPackages.length) return;
     console.log(`\n${labelMapping[group]}`);
-    console.log(usedPackages.map((pkg) => `${emojiMapping[pkg.used]}  ${pkg.name}`).join("\n"));
+    console.log(usedPackages.map((pkg) => `${emojiMapping[pkg.usage]}  ${pkg.name} ${pkg.info ?? ""}`).join("\n"));
 };
 
 export const printPackages = (packages: PackageInfo[]) => {
@@ -29,4 +31,5 @@ export const printPackages = (packages: PackageInfo[]) => {
     printGroup(packages, "yes");
     printGroup(packages, "auto");
     printGroup(packages, "no");
+    printGroup(packages, "noButThirdParty");
 };
