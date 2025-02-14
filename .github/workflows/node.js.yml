@@ -1,6 +1,6 @@
 name: Quality Checks CI
 
-on: [push, fork]
+on: [push]
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
     - name: Set up Bun
       uses: oven-sh/setup-bun@v2
       with:
-        bun-version: 'latest' # You can specify a version here
+        bun-version: 'latest'
 
     - name: Install dependencies
       run: bun install
