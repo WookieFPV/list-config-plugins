@@ -1,7 +1,7 @@
 import { getConfig } from "@expo/config";
-import type { CliOptions } from "./types";
+import type { CommandFlags } from "./cli/impl";
 
-export const readExpoConfig = (options: CliOptions) => {
+export const readExpoConfig = (options: CommandFlags) => {
     try {
         return getConfig(process.cwd(), { skipSDKVersionRequirement: true });
     } catch (e) {

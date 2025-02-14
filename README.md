@@ -1,25 +1,27 @@
-# list-config-plugins [![npm][npm-image]][npm-url]
+# list-config-plugins [![npm][npm-image]][npm-url] ![npm][npm-dl-stats]
 
-A CLI tool to find Expo config plugins available in your project dependencies.
+A CLI tool to discover and manage Expo config plugins in your project dependencies.
 
-## Overview
+## 🚀 Overview
 
-This package helps you manage your Expo config plugins by showing which dependencies have available plugins and whether they're currently being used in your project.\
-Works on Expo & bare React-Native Apps (without Expo)
+`list-config-plugins` helps you efficiently manage your Expo config plugins by identifying which dependencies have available expo config plugins and whether they are currently utilized in your project. It supports:
 
-## Usage
+- ✅ Expo Apps
+- ✅ Bare React-Native Apps (without Expo)
+- ✅ Monorepos
 
-Simply run the package using npx in your App directory:
+## 🎯 Usage
 
+To get started, simply run the package in your app directory:
 
 ```bash
-npx list-config-plugins
+npx list-config-plugins@latest
 ```
 
 ### Example Output
 
 ```bash
-  > npx list-config-plugins
+> npx list-config-plugins
 Config Plugin Overview:
 
 Used Plugins:
@@ -37,25 +39,20 @@ Unused Plugins:
 🟥  @sentry/react-native
 ```
 
-## Features
+## ✨ Features
 
 - 🔍 Scans your project for available Expo config plugins
-- 🟩 Shows which plugins are currently in use
-- 📦 Shows which plugins are automatically added by expo
+- 🟩 Displays currently used plugins
+- 📦 Lists plugins automatically added by Expo
 - 🟥 Identifies unused available plugins
-- 🌐 Finds config plugins provided by [expo @config-plugins/](https://github.com/expo/config-plugins)
-- ⚙️ Supports all types of React-Native & Expo configurations & Monorepos
+- 🌐 Finds config plugins provided by [expo @config-plugins](https://github.com/expo/config-plugins)
+- ⚙️ Supports all types of React-Native & Expo configurations, including Monorepos
 
-## How It Works
+## 🛠️ How It Works
 
 1. Analyzes your project dependencies to identify packages with Expo config plugins.
-2. Checks which config plugins are being used in your Expo configuration.
-
-## Monorepo Support
-
-Monorepos should work, this depends on where your config plugins are placed.
-This package will search for config plugins in `./node_modules` and walk up the folder structure (`../node_modules`, `../../node_modules`, ...).
-If your config plugins are there, it should work. (run with --debug to see where it is searching)
+2. Checks which config plugins are actively used in your Expo configuration.
 
 [npm-image]: https://img.shields.io/npm/v/list-config-plugins
 [npm-url]: https://www.npmjs.com/package/list-config-plugins
+[npm-dl-stats]: https://img.shields.io/npm/dm/list-config-plugins

@@ -1,12 +1,7 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-    entry: ["src/bin.ts"],
+    entry: ["src/cli/bin/cli.ts", "src/cli/bin/bash-complete.ts"],
     format: ["esm"],
-    dts: false,
-    define: {
-        __VERSION__: JSON.stringify(process.env.npm_package_version),
-    },
-    outDir: "dist",
     clean: true,
 });

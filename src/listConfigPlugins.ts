@@ -1,9 +1,9 @@
+import type { CommandFlags } from "./cli/impl";
+import { getPackagePluginList } from "./configPlugin/readPackages.js";
 import { printPackages } from "./printData.js";
 import { readExpoConfig } from "./readExpoConfig.js";
-import { getPackagePluginList } from "./readPackages.js";
-import type { CliOptions } from "./types";
 
-export const listConfigPlugins = (options: CliOptions) => {
+export const listConfigPlugins = (options: CommandFlags) => {
     const config = readExpoConfig(options);
     if (!config) {
         console.log(
@@ -13,7 +13,6 @@ export const listConfigPlugins = (options: CliOptions) => {
         );
         return;
     }
-
     const packages = getPackagePluginList(config, options);
     printPackages(packages);
 };

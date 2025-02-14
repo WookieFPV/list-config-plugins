@@ -7,7 +7,3 @@ export type PackageInfo = { name: string; usage: UsageType; info?: string };
 export type ExpoCfg = ReturnType<typeof getConfig>;
 
 export type ExpoPlugin = ExpoCfg["exp"]["plugins"];
-
-export type CliOptions = {
-    debug: boolean;
-};

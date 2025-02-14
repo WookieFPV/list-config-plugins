@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import { getLegacyExpoPlugins } from "@expo/prebuild-config";
+import type { ExpoCfg, ExpoPlugin, UsageType } from "../types/types";
 import { thirdPartyPluginPrefix, thirdPartyPlugins } from "./communityConfigPlugins";
-import { nodeModulesFolders } from "./findNodeModules.js";
-import type { ExpoCfg, ExpoPlugin, UsageType } from "./types";
+import { nodeModulesFolders } from "./nodeModulesFolders";
 
 const isPluginUsedStr = (pluginStr: string, pkg: string) => {
     if (pluginStr.startsWith(pkg)) return true;

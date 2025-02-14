@@ -1,4 +1,4 @@
-import type { PackageInfo, UsageType } from "./types";
+import type { PackageInfo, UsageType } from "./types/types";
 
 const emojiMapping: Record<UsageType, string> = {
     yes: "🟩",
