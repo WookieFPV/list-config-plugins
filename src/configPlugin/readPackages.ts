@@ -1,8 +1,8 @@
 import type { CommandFlags } from "../cli/impl";
+import { nodeModulesFolders } from "../firstPartyPlugins/nodeModulesFolders";
+import { getConfigPluginInfoText } from "../thirdPartyPlugins/communityConfigPlugins";
 import type { ExpoCfg, PackageInfo } from "../types/types.js";
-import { getConfigPluginInfoText } from "./communityConfigPlugins";
 import { getPluginImportType, hasConfigPlugin } from "./detectionHelpers.js";
-import { nodeModulesFolders } from "./nodeModulesFolders";
 
 export const getPackagePluginList = (config: ExpoCfg, options: CommandFlags): Array<PackageInfo> => {
     if (!config.pkg.dependencies) throw Error("No dependencies could be found by expo");

@@ -11,6 +11,9 @@ const command = buildCommand({
                 default: false,
             },
         },
+        aliases: {
+            d: "debug",
+        },
     },
     docs: {
         brief: description,

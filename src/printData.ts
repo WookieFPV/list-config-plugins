@@ -8,10 +8,10 @@ const emojiMapping: Record<UsageType, string> = {
 };
 
 const labelMapping: Record<UsageType, string> = {
-    yes: "Used Plugins:",
-    auto: "Bundled with Expo:",
-    no: "Unused Plugins:",
-    noButThirdParty: "Without bundled config Plugin but with third party config plugin:",
+    yes: "Used plugins:",
+    auto: "Bundled with expo:",
+    no: "Unused plugins:",
+    noButThirdParty: "Unused third party config plugin:",
 };
 
 const printGroup = (packages: PackageInfo[], group: UsageType) => {

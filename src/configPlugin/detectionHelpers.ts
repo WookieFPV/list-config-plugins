@@ -1,8 +1,7 @@
-import fs from "node:fs";
 import { getLegacyExpoPlugins } from "@expo/prebuild-config";
+import { hasFirstPartyPlugin } from "../firstPartyPlugins/hasPlugin";
+import { hasThirdPartyPlugin, thirdPartyPluginPrefix } from "../thirdPartyPlugins/communityConfigPlugins";
 import type { ExpoCfg, ExpoPlugin, UsageType } from "../types/types";
-import { thirdPartyPluginPrefix, thirdPartyPlugins } from "./communityConfigPlugins";
-import { nodeModulesFolders } from "./nodeModulesFolders";
 
 const isPluginUsedStr = (pluginStr: string, pkg: string) => {
     if (pluginStr.startsWith(pkg)) return true;
@@ -28,11 +27,15 @@ export const getPluginImportType = (config: ExpoCfg, pkg: string): UsageType => 
     const isAutoIncluded = getLegacyExpoPlugins().some((plugin) => plugin.startsWith(pkg));
     if (isAutoIncluded) return "auto";
 
-    const hasThirdPartyPlugin = thirdPartyPlugins.includes(pkg);
-    if (hasThirdPartyPlugin) return "noButThirdParty";
+    const hasThirdParty = hasThirdPartyPlugin(pkg);
+    if (hasThirdParty) return "noButThirdParty";
 
     return "no";
 };
 
-export const hasConfigPlugin = (pkg: string) =>
-    nodeModulesFolders.some((path) => fs.existsSync(`${path}/${pkg}/app.plugin.js`));
+export const hasConfigPlugin = (pkg: string) => {
+    const hasFirstParty = hasFirstPartyPlugin(pkg);
+    const hasThirdParty = hasThirdPartyPlugin(pkg);
+
+    return hasFirstParty || hasThirdParty;
+};

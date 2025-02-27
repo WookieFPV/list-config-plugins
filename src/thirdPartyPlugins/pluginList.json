@@ -1,8 +1,5 @@
-/**
- * Config Plugins provided by https://github.com/expo/config-plugins
- * This list must be kept in sync manually
- */
-export const thirdPartyPlugins = [
+{
+  "thirdPartyPackages": [
     "android-jsc-intl",
     "apple-settings",
     "detox",
@@ -19,10 +16,6 @@ export const thirdPartyPlugins = [
     "react-native-quick-actions",
     "react-native-siri-shortcut",
     "react-native-webrtc",
-    "tv",
-];
-
-export const getConfigPluginInfoText = (name: string) =>
-    `➡️ ${thirdPartyPluginPrefix}${name} (https://github.com/expo/config-plugins/tree/main/packages/${name})`;
-
-export const thirdPartyPluginPrefix = "@config-plugins/";
+    "tv"
+  ]
+}
