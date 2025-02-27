@@ -37,6 +37,10 @@ Bundled with Expo:
 
 Unused Plugins:
 🟥  @sentry/react-native
+
+Unused third party config plugin:
+🟥  react-native-pdf ➡️  @config-plugins/react-native-pdf (https://github.com/expo/config-plugins/tree/main/packages/react-native-pdf)
+
 ```
 
 ## ✨ Features
