@@ -34,16 +34,15 @@
     "@expo/config": "*",
     "@expo/prebuild-config": "*",
     "@rnx-kit/tools-workspaces": "0.2.0",
-    "@stricli/auto-complete": "1.1.1",
     "@stricli/core": "1.1.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@changesets/cli": "2.27.12",
+    "@changesets/cli": "2.28.1",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/bun": "latest",
-    "axios": "1.8.1",
-    "tsup": "8.3.6",
-    "typescript": "5.7.3"
+    "axios": "1.8.3",
+    "tsup": "8.4.0",
+    "typescript": "5.8.2"
   }
 }
