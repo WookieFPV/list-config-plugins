@@ -1,5 +1,14 @@
 # list-config-plugins
 
+## [1.1.5](https://github.com/WookieFPV/list-config-plugins/compare/v1.1.4...v1.1.5) (2025-04-25)
+
+
+### Bug Fixes
+
+* reduce bundlesize (remove autocomplete that was not needed & enabled) ([1764190](https://github.com/WookieFPV/list-config-plugins/commit/17641900372278422cd9c256dc6f916249348794))
+* update dependency @expo/prebuild-config to v8.2.0 ([#5](https://github.com/WookieFPV/list-config-plugins/issues/5)) ([34eb2f6](https://github.com/WookieFPV/list-config-plugins/commit/34eb2f6deaefa13b213e7752faf52c3a7a520e36))
+* update example in Readme ([cd31d39](https://github.com/WookieFPV/list-config-plugins/commit/cd31d393be5df2f3bcecd7e3ae9106da0a799689))
+
 ## 1.1.4 (Feb 27, 2024)
 
 ### Bug Fixes
