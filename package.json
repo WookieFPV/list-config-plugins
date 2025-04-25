@@ -15,8 +15,7 @@
   "module": "index",
   "type": "module",
   "bin": {
-    "list-config-plugins": "dist/cli.js",
-    "__list-config-plugins_bash_complete": "dist/bash-complete.js"
+    "list-config-plugins": "dist/cli.js"
   },
   "main": "dist/cli.js",
   "files": ["dist"],
@@ -27,7 +26,6 @@
     "lint": "bunx biome check --fix",
     "lint:CI": "bunx biome check",
     "typecheck": "tsc",
-    "local-release": "npm run prepublishOnly && changeset version && changeset publish --dry",
     "prepublishOnly": "bun i && bun run lint:CI && tsc  && bun run build"
   },
   "dependencies": {
@@ -38,10 +36,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@changesets/cli": "2.29.2",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/bun": "1.2.10",
     "axios": "1.8.4",
+    "lefthook": "1.11.11",
     "tsup": "8.4.0",
     "typescript": "5.8.3"
   }
