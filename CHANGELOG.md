@@ -1,5 +1,12 @@
 # list-config-plugins
 
+## [1.1.6](https://github.com/WookieFPV/list-config-plugins/compare/v1.1.5...v1.1.6) (2025-04-25)
+
+
+### Bug Fixes
+
+* re-enable tsup Code splitting to reduce bundle size. Result: 8.83 KB -&gt; 6.42 KB. ([17283f0](https://github.com/WookieFPV/list-config-plugins/commit/17283f01a336428bbfdfdfbd59ee7f0df5690754))
+
 ## [1.1.5](https://github.com/WookieFPV/list-config-plugins/compare/v1.1.4...v1.1.5) (2025-04-25)
 
 
