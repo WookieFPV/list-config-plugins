@@ -13,6 +13,13 @@ describe("CLI Tests", () => {
         console.log(`list-config-plugins: ${lcp.trim()}`);
 
         const { stdout } = await $`npx -y list-config-plugins@latest`;
-        expect(stdout).toMatchSnapshot();
+
+        if (process.cwd().endsWith("__tests__")) {
+            console.log("Test Running in __tests__ folder expecting to find config plugins");
+            expect(stdout).toMatchSnapshot();
+        } else {
+            console.log("Test Running in root folder expecting to find NO config plugins!");
+            expect(stdout.trim()).toEqual("Found no config plugins!");
+        }
     }, 20000);
 });
