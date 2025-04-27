@@ -20,6 +20,9 @@ jobs:
       with:
         bun-version: "latest"
 
+    - name: Install List Config Plugins
+      run: npx -y list-config-plugins@latest -v
+
     - run: bun i --cwd=__tests__
 
     - run: bun test --cwd=__tests__

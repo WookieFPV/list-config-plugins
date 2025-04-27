@@ -14,5 +14,5 @@ describe("CLI Tests", () => {
 
         const { stdout } = await $`npx -y list-config-plugins@latest`;
         expect(stdout).toMatchSnapshot();
-    });
+    }, 20000);
 });
