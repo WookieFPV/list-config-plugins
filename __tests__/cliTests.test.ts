@@ -10,7 +10,7 @@ describe("CLI Tests", () => {
         const { stdout: lcp } = await $`npx list-config-plugins@latest -v`;
         console.log(`node ${node.trim()} list-config-plugins: ${lcp.trim()}`);
 
-        const { stdout } = await $`npx list-config-plugins@latest`;
+        const { stdout } = await $`npx -y list-config-plugins@latest`;
         expect(stdout).toMatchSnapshot();
     });
 });
