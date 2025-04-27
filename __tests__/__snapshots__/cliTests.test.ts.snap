@@ -1,0 +1,31 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CLI Tests should show the correct config plugins 1`] = `
+"Config Plugin Overview:
+
+Used plugins:
+🟩  @bitdrift/react-native 
+🟩  expo-build-properties 
+🟩  expo-font 
+🟩  expo-localization 
+🟩  expo-notifications 
+🟩  expo-screen-orientation 
+🟩  expo-splash-screen 
+🟩  expo-video 
+🟩  react-native-compressor 
+🟩  react-native-edge-to-edge 
+
+Bundled with expo:
+📦  expo-camera 
+📦  expo-dev-client 
+📦  expo-file-system 
+📦  expo-image-picker 
+📦  expo-media-library 
+📦  expo-task-manager 
+
+Unused plugins:
+🟥  @sentry/react-native 
+🟥  expo-system-ui 
+🟥  expo-updates 
+"
+`;
