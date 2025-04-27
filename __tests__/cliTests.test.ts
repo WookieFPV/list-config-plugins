@@ -7,8 +7,10 @@ import { $ } from "zx";
 describe("CLI Tests", () => {
     it("should show the correct config plugins", async () => {
         const { stdout: node } = await $`node -v`;
-        const { stdout: lcp } = await $`npx list-config-plugins@latest -v`;
-        console.log(`node ${node.trim()} list-config-plugins: ${lcp.trim()}`);
+        console.log(`node ${node.trim()}`);
+
+        const { stdout: lcp } = await $`npx -y list-config-plugins@latest -v`;
+        console.log(`list-config-plugins: ${lcp.trim()}`);
 
         const { stdout } = await $`npx -y list-config-plugins@latest`;
         expect(stdout).toMatchSnapshot();
