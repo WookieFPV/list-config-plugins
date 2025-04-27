@@ -20,8 +20,6 @@ jobs:
       with:
         bun-version: "latest"
 
-    - run: cd __tests__
+    - run: bun i --cwd=__tests__
 
-    - run: bun i
-
-    - run: bun test
+    - run: bun test --cwd=__tests__
