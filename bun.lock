@@ -5,7 +5,7 @@
       "name": "list-config-plugins",
       "dependencies": {
         "@expo/config": "11.0.7",
-        "@expo/prebuild-config": "9.0.4",
+        "@expo/prebuild-config": "9.0.5",
         "@rnx-kit/tools-workspaces": "0.2.2",
         "@stricli/core": "1.1.2",
       },
@@ -108,7 +108,7 @@
 
     "@expo/plist": ["@expo/plist@0.3.4", "", { "dependencies": { "@xmldom/xmldom": "^0.8.8", "base64-js": "^1.2.3", "xmlbuilder": "^15.1.1" } }, "sha512-MhBLaUJNe9FQDDU2xhSNS4SAolr6K2wuyi4+A79vYuXLkAoICsbTwcGEQJN5jPY6D9izO/jsXh5k0h+mIWQMdw=="],
 
-    "@expo/prebuild-config": ["@expo/prebuild-config@9.0.4", "", { "dependencies": { "@expo/config": "~11.0.7", "@expo/config-plugins": "~10.0.1", "@expo/config-types": "^53.0.3", "@expo/image-utils": "^0.7.4", "@expo/json-file": "^9.1.4", "@react-native/normalize-colors": "0.79.1", "debug": "^4.3.1", "resolve-from": "^5.0.0", "semver": "^7.6.0", "xml2js": "0.6.0" } }, "sha512-YQwTLvHjgqtVM3ZNdMP79510Opnv+TVWTOf3gmi9fKOfWgpR0YiE19aRF7YrQ+qh22Mt1tBBFVRsT3gsBq/Ytw=="],
+    "@expo/prebuild-config": ["@expo/prebuild-config@9.0.5", "", { "dependencies": { "@expo/config": "~11.0.7", "@expo/config-plugins": "~10.0.2", "@expo/config-types": "^53.0.3", "@expo/image-utils": "^0.7.4", "@expo/json-file": "^9.1.4", "@react-native/normalize-colors": "0.79.2", "debug": "^4.3.1", "resolve-from": "^5.0.0", "semver": "^7.6.0", "xml2js": "0.6.0" } }, "sha512-oiSVU5ePu9lsOvn5p4xplqjzPlcZHzKYwzuonTa9GCH1GxcOEIBsvMVQiHBXHtqvgV2dztjm34kdXV//+9jtCA=="],
 
     "@expo/sdk-runtime-versions": ["@expo/sdk-runtime-versions@1.0.0", "", {}, "sha512-Doz2bfiPndXYFPMRwPyGa1k5QaKDVpY806UJj570epIiMzWaYyCtobasyfC++qfIXVb5Ocy7r3tP9d62hAQ7IQ=="],
 
@@ -134,7 +134,7 @@
 
     "@pkgjs/parseargs": ["@pkgjs/parseargs@0.11.0", "", {}, "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="],
 
-    "@react-native/normalize-colors": ["@react-native/normalize-colors@0.79.1", "", {}, "sha512-Fj12xKyihZhrFH45ruqECd2JVx9lyYe+dyxO7MYgkqY6UENsSS3JKcfzjSNBZLW7NXts6JkbaqLQPwaHmPF7QA=="],
+    "@react-native/normalize-colors": ["@react-native/normalize-colors@0.79.2", "", {}, "sha512-+b+GNrupWrWw1okHnEENz63j7NSMqhKeFMOyzYLBwKcprG8fqJQhDIGXfizKdxeIa5NnGSAevKL1Ev1zJ56X8w=="],
 
     "@rnx-kit/tools-workspaces": ["@rnx-kit/tools-workspaces@0.2.2", "", { "dependencies": { "fast-glob": "^3.2.7", "find-up": "^5.0.0", "micromatch": "^4.0.0", "read-yaml-file": "^2.1.0", "strip-json-comments": "^3.1.1" } }, "sha512-6Km4tkP3WgqsNasr4rTDh7/+ZgkFobuP1fe1LT0ZMyBJ7zkadau8HpqYCF6+J60CoorCgxcA8hlEUhw9T/vPwA=="],
 
