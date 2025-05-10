@@ -29,8 +29,8 @@
     "prepublishOnly": "bun i && bun run lint:CI && tsc  && bun run build"
   },
   "dependencies": {
-    "@expo/config": "11.0.7",
-    "@expo/prebuild-config": "9.0.5",
+    "@expo/config": "11.0.9",
+    "@expo/prebuild-config": "9.0.6",
     "@rnx-kit/tools-workspaces": "0.2.2",
     "@stricli/core": "1.1.2"
   },
