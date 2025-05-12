@@ -1,5 +1,16 @@
 # list-config-plugins
 
+## [1.1.7](https://github.com/WookieFPV/list-config-plugins/compare/v1.1.6...v1.1.7) (2025-05-12)
+
+
+### Bug Fixes
+
+* update dependency @expo/config to v11.0.10 ([#22](https://github.com/WookieFPV/list-config-plugins/issues/22)) ([807951b](https://github.com/WookieFPV/list-config-plugins/commit/807951b5b1259ca89f93af9d2868b89cd7465bec))
+* update dependency @expo/prebuild-config to v9.0.5 ([#19](https://github.com/WookieFPV/list-config-plugins/issues/19)) ([d5fdc34](https://github.com/WookieFPV/list-config-plugins/commit/d5fdc3434ecb183543558098cadddf69824850cd))
+* update expo monorepo ([526a4d6](https://github.com/WookieFPV/list-config-plugins/commit/526a4d6c29bc0d4af2264c9669b8c1e0f47518bf))
+* update expo monorepo ([#21](https://github.com/WookieFPV/list-config-plugins/issues/21)) ([62127a4](https://github.com/WookieFPV/list-config-plugins/commit/62127a412749cb455e82b95d4967528d46145f91))
+* update expo monorepo (major) ([1a99e2d](https://github.com/WookieFPV/list-config-plugins/commit/1a99e2d2a0c9a6e30853cac5b71de88db7baeefa))
+
 ## [1.1.6](https://github.com/WookieFPV/list-config-plugins/compare/v1.1.5...v1.1.6) (2025-04-25)
 
 
