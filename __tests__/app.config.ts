@@ -1,264 +1,215 @@
-const pkg = require("./package.json");
+import type { ConfigContext, ExpoConfig } from "expo/config";
 
-module.exports = (_config) => {
-    /**
-     * App version number. Should be incremented as part of a release cycle.
-     */
-    const VERSION = pkg.version;
+const USE_SENTRY = Boolean(process.env.SENTRY_AUTH_TOKEN);
 
-    /**
-     * Uses built-in Expo env vars
-     *
-     * @see https://docs.expo.dev/build-reference/variables/#built-in-environment-variables
-     */
-    const PLATFORM = process.env.EAS_BUILD_PLATFORM;
-
-    const IS_TESTFLIGHT = process.env.EXPO_PUBLIC_ENV === "testflight";
-    const IS_PRODUCTION = process.env.EXPO_PUBLIC_ENV === "production";
-    const IS_DEV = !IS_TESTFLIGHT || !IS_PRODUCTION;
-
-    const ASSOCIATED_DOMAINS = [
-        "applinks:bsky.app",
-        "applinks:staging.bsky.app",
-        "appclips:bsky.app",
-        "appclips:go.bsky.app", // Allows App Clip to work when scanning QR codes
-        // When testing local services, enter an ngrok (et al) domain here. It must use a standard HTTP/HTTPS port.
-        ...(IS_DEV || IS_TESTFLIGHT ? [] : []),
-    ];
-
-    const UPDATES_CHANNEL = IS_TESTFLIGHT ? "testflight" : IS_PRODUCTION ? "production" : undefined;
-    const UPDATES_ENABLED = !!UPDATES_CHANNEL;
-
-    const USE_SENTRY = Boolean(process.env.SENTRY_AUTH_TOKEN);
-
-    return {
-        expo: {
-            version: VERSION,
-            name: "Bluesky",
-            slug: "bluesky",
-            scheme: "bluesky",
-            owner: "blueskysocial",
-            runtimeVersion: {
-                policy: "appVersion",
-            },
-            icon: "./assets/app-icons/ios_icon_default_light.png",
-            userInterfaceStyle: "automatic",
-            primaryColor: "#1083fe",
-            ios: {
-                supportsTablet: false,
-                bundleIdentifier: "xyz.blueskyweb.app",
-                config: {
-                    usesNonExemptEncryption: false,
+// eslint-disable-next-line no-restricted-exports
+export default ({ config }: ConfigContext): ExpoConfig => ({
+    ...config,
+    version: "0.0.01",
+    name: "Bluesky",
+    slug: "bluesky",
+    scheme: "bluesky",
+    owner: "blueskysocial",
+    runtimeVersion: {
+        policy: "appVersion",
+    },
+    icon: "./assets/app-icons/ios_icon_default_light.png",
+    userInterfaceStyle: "automatic",
+    primaryColor: "#1083fe",
+    ios: {
+        supportsTablet: false,
+        bundleIdentifier: "xyz.blueskyweb.app",
+        config: {
+            usesNonExemptEncryption: false,
+        },
+        infoPlist: {
+            UIBackgroundModes: ["remote-notification"],
+            NSCameraUsageDescription: "Used for profile pictures, posts, and other kinds of content.",
+            NSMicrophoneUsageDescription: "Used for posts and other kinds of content.",
+            NSPhotoLibraryAddUsageDescription: "Used to save images to your library.",
+            NSPhotoLibraryUsageDescription: "Used for profile pictures, posts, and other kinds of content",
+            CFBundleSpokenName: "Blue Sky",
+            CFBundleLocalizations: [
+                "en",
+                "an",
+                "ast",
+                "ca",
+                "cy",
+                "da",
+                "de",
+                "el",
+                "eo",
+                "es",
+                "eu",
+                "fi",
+                "fr",
+                "ga",
+                "gd",
+                "gl",
+                "hi",
+                "hu",
+                "ia",
+                "id",
+                "it",
+                "ja",
+                "km",
+                "ko",
+                "ne",
+                "nl",
+                "pl",
+                "pt-BR",
+                "ro",
+                "ru",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "vi",
+                "yue",
+                "zh-Hans",
+                "zh-Hant",
+            ],
+        },
+        entitlements: {
+            "com.apple.developer.kernel.increased-memory-limit": true,
+            "com.apple.developer.kernel.extended-virtual-addressing": true,
+            "com.apple.security.application-groups": "group.app.bsky",
+        },
+        privacyManifests: {
+            NSPrivacyAccessedAPITypes: [
+                {
+                    NSPrivacyAccessedAPIType: "NSPrivacyAccessedAPICategoryFileTimestamp",
+                    NSPrivacyAccessedAPITypeReasons: ["C617.1", "3B52.1", "0A2A.1"],
                 },
-                infoPlist: {
-                    UIBackgroundModes: ["remote-notification"],
-                    NSCameraUsageDescription: "Used for profile pictures, posts, and other kinds of content.",
-                    NSMicrophoneUsageDescription: "Used for posts and other kinds of content.",
-                    NSPhotoLibraryAddUsageDescription: "Used to save images to your library.",
-                    NSPhotoLibraryUsageDescription: "Used for profile pictures, posts, and other kinds of content",
-                    CFBundleSpokenName: "Blue Sky",
-                    CFBundleLocalizations: [
-                        "en",
-                        "an",
-                        "ast",
-                        "ca",
-                        "cy",
-                        "da",
-                        "de",
-                        "el",
-                        "eo",
-                        "es",
-                        "eu",
-                        "fi",
-                        "fr",
-                        "ga",
-                        "gd",
-                        "gl",
-                        "hi",
-                        "hu",
-                        "ia",
-                        "id",
-                        "it",
-                        "ja",
-                        "km",
-                        "ko",
-                        "ne",
-                        "nl",
-                        "pl",
-                        "pt-BR",
-                        "ro",
-                        "ru",
-                        "sv",
-                        "th",
-                        "tr",
-                        "uk",
-                        "vi",
-                        "yue",
-                        "zh-Hans",
-                        "zh-Hant",
-                    ],
+                {
+                    NSPrivacyAccessedAPIType: "NSPrivacyAccessedAPICategoryDiskSpace",
+                    NSPrivacyAccessedAPITypeReasons: ["E174.1", "85F4.1"],
                 },
-                associatedDomains: ASSOCIATED_DOMAINS,
-                entitlements: {
-                    "com.apple.developer.kernel.increased-memory-limit": true,
-                    "com.apple.developer.kernel.extended-virtual-addressing": true,
-                    "com.apple.security.application-groups": "group.app.bsky",
+                {
+                    NSPrivacyAccessedAPIType: "NSPrivacyAccessedAPICategorySystemBootTime",
+                    NSPrivacyAccessedAPITypeReasons: ["35F9.1"],
                 },
-                privacyManifests: {
-                    NSPrivacyAccessedAPITypes: [
-                        {
-                            NSPrivacyAccessedAPIType: "NSPrivacyAccessedAPICategoryFileTimestamp",
-                            NSPrivacyAccessedAPITypeReasons: ["C617.1", "3B52.1", "0A2A.1"],
-                        },
-                        {
-                            NSPrivacyAccessedAPIType: "NSPrivacyAccessedAPICategoryDiskSpace",
-                            NSPrivacyAccessedAPITypeReasons: ["E174.1", "85F4.1"],
-                        },
-                        {
-                            NSPrivacyAccessedAPIType: "NSPrivacyAccessedAPICategorySystemBootTime",
-                            NSPrivacyAccessedAPITypeReasons: ["35F9.1"],
-                        },
-                        {
-                            NSPrivacyAccessedAPIType: "NSPrivacyAccessedAPICategoryUserDefaults",
-                            NSPrivacyAccessedAPITypeReasons: ["CA92.1", "1C8F.1"],
-                        },
-                    ],
+                {
+                    NSPrivacyAccessedAPIType: "NSPrivacyAccessedAPICategoryUserDefaults",
+                    NSPrivacyAccessedAPITypeReasons: ["CA92.1", "1C8F.1"],
                 },
-            },
-            androidStatusBar: {
-                barStyle: "light-content",
-            },
-            // Dark nav bar in light mode is better than light nav bar in dark mode
-            androidNavigationBar: {
-                barStyle: "light-content",
-            },
-            android: {
-                icon: "./assets/app-icons/android_icon_default_light.png",
-                adaptiveIcon: {
-                    foregroundImage: "./assets/icon-android-foreground.png",
-                    monochromeImage: "./assets/icon-android-foreground.png",
-                    backgroundImage: "./assets/icon-android-background.png",
-                    backgroundColor: "#1185FE",
-                },
-                googleServicesFile: "./google-services.json",
-                package: "xyz.blueskyweb.app",
-                intentFilters: [
+            ],
+        },
+    },
+    androidStatusBar: {
+        barStyle: "light-content",
+    },
+    // Dark nav bar in light mode is better than light nav bar in dark mode
+    androidNavigationBar: {
+        barStyle: "light-content",
+    },
+    android: {
+        icon: "./assets/app-icons/android_icon_default_light.png",
+        adaptiveIcon: {
+            foregroundImage: "./assets/icon-android-foreground.png",
+            monochromeImage: "./assets/icon-android-foreground.png",
+            backgroundImage: "./assets/icon-android-background.png",
+            backgroundColor: "#1185FE",
+        },
+        googleServicesFile: "./google-services.json",
+        package: "xyz.blueskyweb.app",
+        intentFilters: [
+            {
+                action: "VIEW",
+                autoVerify: true,
+                data: [
                     {
-                        action: "VIEW",
-                        autoVerify: true,
-                        data: [
+                        scheme: "https",
+                        host: "bsky.app",
+                    },
+                ],
+                category: ["BROWSABLE", "DEFAULT"],
+            },
+        ],
+    },
+    web: {
+        favicon: "./assets/favicon.png",
+    },
+    plugins: [
+        "expo-video",
+        "expo-localization",
+        ["react-native-edge-to-edge", { android: { enforceNavigationBarContrast: false } }],
+        USE_SENTRY && [
+            "@sentry/react-native/expo",
+            {
+                organization: "blueskyweb",
+                project: "app",
+                url: "https://sentry.io",
+            },
+        ],
+        [
+            "expo-build-properties",
+            {
+                ios: {
+                    deploymentTarget: "15.1",
+                    newArchEnabled: false,
+                },
+                android: {
+                    compileSdkVersion: 35,
+                    targetSdkVersion: 35,
+                    buildToolsVersion: "35.0.0",
+                    newArchEnabled: false,
+                },
+            },
+        ],
+        [
+            "expo-notifications",
+            {
+                icon: "./assets/icon-android-notification.png",
+                color: "#1185fe",
+                sounds: process.env.EAS_BUILD_PLATFORM === "ios" ? ["assets/dm.aiff"] : ["assets/dm.mp3"],
+            },
+        ],
+        "react-native-compressor",
+        [
+            "@bitdrift/react-native",
+            {
+                networkInstrumentation: true,
+            },
+        ],
+        [
+            "expo-font",
+            {
+                fonts: [],
+            },
+        ],
+        ["expo-splash-screen"],
+        ["expo-screen-orientation", { initialOrientation: "PORTRAIT_UP" }],
+    ].filter(Boolean),
+    extra: {
+        eas: {
+            build: {
+                experimental: {
+                    ios: {
+                        appExtensions: [
                             {
-                                scheme: "https",
-                                host: "bsky.app",
+                                targetName: "Share-with-Bluesky",
+                                bundleIdentifier: "xyz.blueskyweb.app.Share-with-Bluesky",
+                                entitlements: {
+                                    "com.apple.security.application-groups": ["group.app.bsky"],
+                                },
                             },
-                            IS_DEV && {
-                                scheme: "http",
-                                host: "localhost:19006",
+                            {
+                                targetName: "BlueskyNSE",
+                                bundleIdentifier: "xyz.blueskyweb.app.BlueskyNSE",
+                                entitlements: {
+                                    "com.apple.security.application-groups": ["group.app.bsky"],
+                                },
+                            },
+                            {
+                                targetName: "BlueskyClip",
+                                bundleIdentifier: "xyz.blueskyweb.app.AppClip",
                             },
                         ],
-                        category: ["BROWSABLE", "DEFAULT"],
                     },
-                ],
-            },
-            web: {
-                favicon: "./assets/favicon.png",
-            },
-            updates: {
-                url: "https://updates.bsky.app/manifest",
-                enabled: UPDATES_ENABLED,
-                fallbackToCacheTimeout: 30000,
-                codeSigningCertificate: UPDATES_ENABLED ? "./code-signing/certificate.pem" : undefined,
-                codeSigningMetadata: UPDATES_ENABLED
-                    ? {
-                          keyid: "main",
-                          alg: "rsa-v1_5-sha256",
-                      }
-                    : undefined,
-                checkAutomatically: "NEVER",
-                channel: UPDATES_CHANNEL,
-            },
-            plugins: [
-                "expo-video",
-                "expo-localization",
-                ["react-native-edge-to-edge", { android: { enforceNavigationBarContrast: false } }],
-                USE_SENTRY && [
-                    "@sentry/react-native/expo",
-                    {
-                        organization: "blueskyweb",
-                        project: "app",
-                        url: "https://sentry.io",
-                    },
-                ],
-                [
-                    "expo-build-properties",
-                    {
-                        ios: {
-                            deploymentTarget: "15.1",
-                            newArchEnabled: false,
-                        },
-                        android: {
-                            compileSdkVersion: 35,
-                            targetSdkVersion: 35,
-                            buildToolsVersion: "35.0.0",
-                            newArchEnabled: false,
-                        },
-                    },
-                ],
-                [
-                    "expo-notifications",
-                    {
-                        icon: "./assets/icon-android-notification.png",
-                        color: "#1185fe",
-                        sounds: PLATFORM === "ios" ? ["assets/dm.aiff"] : ["assets/dm.mp3"],
-                    },
-                ],
-                "react-native-compressor",
-                [
-                    "@bitdrift/react-native",
-                    {
-                        networkInstrumentation: true,
-                    },
-                ],
-                [
-                    "expo-font",
-                    {
-                        fonts: [],
-                    },
-                ],
-                ["expo-splash-screen"],
-                ["expo-screen-orientation", { initialOrientation: "PORTRAIT_UP" }],
-            ].filter(Boolean),
-            extra: {
-                eas: {
-                    build: {
-                        experimental: {
-                            ios: {
-                                appExtensions: [
-                                    {
-                                        targetName: "Share-with-Bluesky",
-                                        bundleIdentifier: "xyz.blueskyweb.app.Share-with-Bluesky",
-                                        entitlements: {
-                                            "com.apple.security.application-groups": ["group.app.bsky"],
-                                        },
-                                    },
-                                    {
-                                        targetName: "BlueskyNSE",
-                                        bundleIdentifier: "xyz.blueskyweb.app.BlueskyNSE",
-                                        entitlements: {
-                                            "com.apple.security.application-groups": ["group.app.bsky"],
-                                        },
-                                    },
-                                    {
-                                        targetName: "BlueskyClip",
-                                        bundleIdentifier: "xyz.blueskyweb.app.AppClip",
-                                    },
-                                ],
-                            },
-                        },
-                    },
-                    projectId: "55bd077a-d905-4184-9c7f-94789ba0f302",
                 },
             },
+            projectId: "55bd077a-d905-4184-9c7f-94789ba0f302",
         },
-    };
-};
+    },
+});
