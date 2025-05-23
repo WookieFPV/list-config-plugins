@@ -1,4 +1,4 @@
-import type { ConfigContext, ExpoConfig } from "expo/config";
+import type { ConfigContext, ExpoConfig } from "@expo/config";
 
 const USE_SENTRY = Boolean(process.env.SENTRY_AUTH_TOKEN);
 
