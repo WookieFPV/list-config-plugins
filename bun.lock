@@ -5,7 +5,7 @@
       "name": "list-config-plugins",
       "dependencies": {
         "@expo/config": "11.0.10",
-        "@expo/prebuild-config": "9.0.7",
+        "@expo/prebuild-config": "9.0.8",
         "@rnx-kit/tools-workspaces": "0.2.2",
         "@stricli/core": "1.1.2",
       },
@@ -108,7 +108,7 @@
 
     "@expo/plist": ["@expo/plist@0.3.4", "", { "dependencies": { "@xmldom/xmldom": "^0.8.8", "base64-js": "^1.2.3", "xmlbuilder": "^15.1.1" } }, "sha512-MhBLaUJNe9FQDDU2xhSNS4SAolr6K2wuyi4+A79vYuXLkAoICsbTwcGEQJN5jPY6D9izO/jsXh5k0h+mIWQMdw=="],
 
-    "@expo/prebuild-config": ["@expo/prebuild-config@9.0.7", "", { "dependencies": { "@expo/config": "~11.0.10", "@expo/config-plugins": "~10.0.3", "@expo/config-types": "^53.0.4", "@expo/image-utils": "^0.7.4", "@expo/json-file": "^9.1.4", "@react-native/normalize-colors": "0.79.4", "debug": "^4.3.1", "resolve-from": "^5.0.0", "semver": "^7.6.0", "xml2js": "0.6.0" } }, "sha512-1w5MBp6NdF51gPGp0HsCZt0QC82hZWo37wI9HfxhdQF/sN/92Mh4t30vaY7gjHe71T5QNyab00oxZH/wP0MDgQ=="],
+    "@expo/prebuild-config": ["@expo/prebuild-config@9.0.8", "", { "dependencies": { "@expo/config": "~11.0.10", "@expo/config-plugins": "~10.0.3", "@expo/config-types": "^53.0.4", "@expo/image-utils": "^0.7.4", "@expo/json-file": "^9.1.4", "@react-native/normalize-colors": "0.79.4", "debug": "^4.3.1", "resolve-from": "^5.0.0", "semver": "^7.6.0", "xml2js": "0.6.0" } }, "sha512-vzORt1zrgjIYOKAmHk0SUka0rlYo0AIZpOF6019ms2XaQnxyvcQACz1BxTk2++fTAzSAxerufNQOm2owPcAz+g=="],
 
     "@expo/sdk-runtime-versions": ["@expo/sdk-runtime-versions@1.0.0", "", {}, "sha512-Doz2bfiPndXYFPMRwPyGa1k5QaKDVpY806UJj570epIiMzWaYyCtobasyfC++qfIXVb5Ocy7r3tP9d62hAQ7IQ=="],
 
