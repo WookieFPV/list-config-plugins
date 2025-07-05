@@ -1,5 +1,16 @@
 # list-config-plugins
 
+## [1.1.8](https://github.com/WookieFPV/list-config-plugins/compare/v1.1.7...v1.1.8) (2025-07-05)
+
+
+### Bug Fixes
+
+* update dependency @expo/config to v11.0.11 ([#43](https://github.com/WookieFPV/list-config-plugins/issues/43)) ([1a3a3f7](https://github.com/WookieFPV/list-config-plugins/commit/1a3a3f726e09a6599980472873559133db241d0e))
+* update dependency @expo/prebuild-config to v9.0.7 ([#36](https://github.com/WookieFPV/list-config-plugins/issues/36)) ([c13216d](https://github.com/WookieFPV/list-config-plugins/commit/c13216d0c8166f18492205c24c8b32a6d81b6137))
+* update dependency @expo/prebuild-config to v9.0.8 ([#41](https://github.com/WookieFPV/list-config-plugins/issues/41)) ([7244287](https://github.com/WookieFPV/list-config-plugins/commit/7244287fca1ab534fa93b435c02c2542e210fd1c))
+* update dependency @expo/prebuild-config to v9.0.9 ([#45](https://github.com/WookieFPV/list-config-plugins/issues/45)) ([e0181c8](https://github.com/WookieFPV/list-config-plugins/commit/e0181c865cdbe050820b50faed70fd9335f6791d))
+* update dependency @stricli/core to v1.2.0 ([#44](https://github.com/WookieFPV/list-config-plugins/issues/44)) ([7946724](https://github.com/WookieFPV/list-config-plugins/commit/79467241b954072ac9b3f07df24d96fc8608f502))
+
 ## [1.1.7](https://github.com/WookieFPV/list-config-plugins/compare/v1.1.6...v1.1.7) (2025-05-16)
 
 
