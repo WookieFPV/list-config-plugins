@@ -38,7 +38,7 @@
     "@expo/config": "11.0.11",
     "@expo/prebuild-config": "9.0.8",
     "@rnx-kit/tools-workspaces": "0.2.2",
-    "@stricli/core": "1.1.2"
+    "@stricli/core": "1.2.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
