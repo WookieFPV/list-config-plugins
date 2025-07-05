@@ -7,7 +7,7 @@
         "@expo/config": "11.0.11",
         "@expo/prebuild-config": "9.0.8",
         "@rnx-kit/tools-workspaces": "0.2.2",
-        "@stricli/core": "1.1.2",
+        "@stricli/core": "1.2.0",
       },
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -176,7 +176,7 @@
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.36.0", "", { "os": "win32", "cpu": "x64" }, "sha512-aRXd7tRZkWLqGbChgcMMDEHjOKudo1kChb1Jt1IfR8cY/KIpgNviLeJy5FUb9IpSuQj8dU2fAYNMPW/hLKOSTw=="],
 
-    "@stricli/core": ["@stricli/core@1.1.2", "", {}, "sha512-/yWSoHUxo9mF8rgUyZkJgdrAoyIiOOhez1jo9vHTUJa8HTZYhioQUXtQU+rhi52m/hnV9Z2VGC2ap3OTH4NvUg=="],
+    "@stricli/core": ["@stricli/core@1.2.0", "", {}, "sha512-5b+npntDY0TAB7wAw0daGlh3/R2sf0TDLyrB1By2jCNH+C+lmcSqMtJXOMLVtEGSkIOvqAgIWpLMSs1PXqzt3w=="],
 
     "@total-typescript/ts-reset": ["@total-typescript/ts-reset@0.6.1", "", {}, "sha512-cka47fVSo6lfQDIATYqb/vO1nvFfbPw7uWLayIXIhGETj0wcOOlrlkobOMDNQOFr9QOafegUPq13V2+6vtD7yg=="],
 
