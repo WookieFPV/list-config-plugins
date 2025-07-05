@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@expo/config": "11.0.11",
-    "@expo/prebuild-config": "9.0.8",
+    "@expo/prebuild-config": "9.0.9",
     "@rnx-kit/tools-workspaces": "0.2.2",
     "@stricli/core": "1.2.0"
   },
