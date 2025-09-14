@@ -45,7 +45,7 @@
     "@total-typescript/ts-reset": "0.6.1",
     "@types/bun": "1.2.21",
     "axios": "1.11.0",
-    "lefthook": "1.12.4",
+    "lefthook": "1.13.0",
     "tsup": "8.5.0",
     "typescript": "5.9.2",
     "zx": "8.8.1"
