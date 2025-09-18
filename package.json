@@ -35,17 +35,17 @@
     "prepublishOnly": "bun i && bun run lint:CI && tsc  && bun run build"
   },
   "dependencies": {
-    "@expo/config": "11.0.13",
-    "@expo/prebuild-config": "9.0.12",
-    "@rnx-kit/tools-workspaces": "0.2.3",
-    "@stricli/core": "1.2.0"
+    "@expo/prebuild-config": "^54.0.3",
+    "@rnx-kit/tools-workspaces": "^0.2.3",
+    "@stricli/core": "^1.2.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
+    "@expo/config": "12.0.9",
     "@total-typescript/ts-reset": "0.6.1",
-    "@types/bun": "1.2.21",
-    "axios": "1.12.0",
-    "lefthook": "1.13.0",
+    "@types/bun": "1.2.22",
+    "axios": "1.12.2",
+    "lefthook": "1.13.1",
     "tsup": "8.5.0",
     "typescript": "5.9.2",
     "zx": "8.8.1"
