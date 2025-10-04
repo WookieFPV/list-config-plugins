@@ -43,7 +43,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
     "@total-typescript/ts-reset": "0.6.1",
-    "@types/bun": "1.2.22",
+    "@types/bun": "1.2.23",
     "axios": "1.12.2",
     "lefthook": "1.13.6",
     "tsup": "8.5.0",
