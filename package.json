@@ -47,7 +47,7 @@
     "axios": "1.12.2",
     "lefthook": "1.13.6",
     "tsup": "8.5.0",
-    "typescript": "5.9.2",
+    "typescript": "5.9.3",
     "zx": "8.8.3"
   }
 }
