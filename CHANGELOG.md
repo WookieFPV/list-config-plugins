@@ -1,5 +1,12 @@
 # list-config-plugins
 
+## [1.1.9](https://github.com/WookieFPV/list-config-plugins/compare/v1.1.8...v1.1.9) (2025-10-05)
+
+
+### Bug Fixes
+
+* update dependency @expo/prebuild-config to v9.0.12 ([#70](https://github.com/WookieFPV/list-config-plugins/issues/70)) ([aeb2e40](https://github.com/WookieFPV/list-config-plugins/commit/aeb2e405a1de21b2954214ce812651071bc597d0))
+
 ## [1.1.8](https://github.com/WookieFPV/list-config-plugins/compare/v1.1.7...v1.1.8) (2025-07-24)
 
 
