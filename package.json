@@ -38,7 +38,7 @@
     "lint": "bunx biome check --fix",
     "lint:CI": "bunx biome check",
     "typecheck": "tsc",
-    "release": "bun publish --access public",
+    "release": "changeset publish",
     "prepublishOnly": "bun i && bun run lint:CI && tsc && bun run build"
   },
   "dependencies": {
