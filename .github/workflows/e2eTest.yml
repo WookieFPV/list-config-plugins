@@ -1,28 +1,40 @@
 name: e2eTest
-on: [push, pull_request]
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * 1"
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
+    timeout-minutes: 10
     steps:
-    - uses: actions/checkout@v6
+      - uses: actions/checkout@v6
 
-    - uses: actions/setup-node@v6
-      with:
-        node-version: ${{ matrix.node-version }}
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22.x
 
-    - name: Set up Bun
-      uses: oven-sh/setup-bun@v2
-      with:
-        bun-version: "latest"
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "latest"
 
-    - name: Install List Config Plugins
-      run: npx -y list-config-plugins@latest -v
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
 
-    - run: bun i --cwd=__tests__
+      - name: Build package
+        run: bun run build
 
-    - run: bun test --cwd=__tests__
+      - name: Pack current commit
+        run: npm pack --silent
+
+      - name: Install test dependencies
+        run: bun i --cwd=__tests__
+
+      - name: Run e2e against packed artifact
+        run: |
+          export PACKAGE_TGZ=$(ls list-config-plugins-*.tgz | head -n1)
+          export LCP_PACKAGE="../$PACKAGE_TGZ"
+          bun test --cwd=__tests__

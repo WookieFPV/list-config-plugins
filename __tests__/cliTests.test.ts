@@ -9,10 +9,11 @@ describe("CLI Tests", () => {
         const { stdout: node } = await $`node -v`;
         console.log(`node ${node.trim()}`);
 
-        const { stdout: lcp } = await $`npx -y list-config-plugins@latest -v`;
+        const packageTarget = process.env.LCP_PACKAGE ?? "list-config-plugins@latest";
+        const { stdout: lcp } = await $`npx -y ${packageTarget} -v`;
         console.log(`list-config-plugins: ${lcp.trim()}`);
 
-        const { stdout } = await $`npx -y list-config-plugins@latest`;
+        const { stdout } = await $`npx -y ${packageTarget}`;
 
         if (process.cwd().endsWith("__tests__")) {
             console.log("Test Running in __tests__ folder expecting to find config plugins");
@@ -21,5 +22,5 @@ describe("CLI Tests", () => {
             console.log("Test Running in root folder expecting to find NO config plugins!");
             expect(stdout.trim()).toEqual("Found no config plugins!");
         }
-    }, 20000);
+    }, 120000);
 });

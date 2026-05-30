@@ -1,27 +1,27 @@
 # list-config-plugins [![npm][npm-image]][npm-url] ![npm][npm-dl-stats]
 
-A CLI tool to discover and manage Expo config plugins in your project dependencies.
+Find Expo config plugins hidden in your dependencies and see which ones your app already uses.
 
-## 🚀 Overview
+`list-config-plugins` scans the current app, detects packages that expose Expo config plugins, and compares that list against your actual Expo config. It works well for Expo apps, bare React Native apps, and monorepos.
 
-`list-config-plugins` helps you efficiently manage your Expo config plugins by identifying which dependencies have available expo config plugins and whether they are currently utilized in your project. It supports:
+## Run It
 
-- ✅ Expo Apps
-- ✅ Bare React-Native Apps (without Expo)
-- ✅ Monorepos
-
-## 🎯 Usage
-
-To get started, simply run the package in your app directory:
+Run the command from the app directory you want to inspect:
 
 ```bash
 npx list-config-plugins@latest
 ```
 
-### Example Output
+## What It Shows
 
-```bash
-> npx list-config-plugins
+- Plugins already listed in your Expo config
+- Plugins bundled by Expo
+- Dependencies that expose config plugins but are currently unused
+- Matching third-party plugins from the [`@config-plugins`](https://github.com/expo/config-plugins) ecosystem
+
+## Example Output
+
+```text
 Config Plugin Overview:
 
 Used Plugins:
