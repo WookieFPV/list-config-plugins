@@ -96,10 +96,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
             ],
         },
     },
-    // Dark nav bar in light mode is better than light nav bar in dark mode
-    androidNavigationBar: {
-        barStyle: "light-content",
-    },
     android: {
         icon: "./assets/app-icons/android_icon_default_light.png",
         adaptiveIcon: {
