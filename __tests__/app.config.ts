@@ -96,9 +96,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
             ],
         },
     },
-    androidStatusBar: {
-        barStyle: "light-content",
-    },
     // Dark nav bar in light mode is better than light nav bar in dark mode
     androidNavigationBar: {
         barStyle: "light-content",
