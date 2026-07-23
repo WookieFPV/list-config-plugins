@@ -40,7 +40,7 @@
     "statsig-react-native-expo": "^4.6.1"
   },
   "devDependencies": {
-    "zx": "8.5.3"
+    "zx": "8.8.5"
   },
   "resolutions": {
     "@expo/image-utils": "0.6.3",
