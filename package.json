@@ -41,6 +41,10 @@
     "release": "changeset publish",
     "prepublishOnly": "bun i && bun run lint:CI && tsc && bun run build"
   },
+  "overrides": {
+    "uuid": "11.1.1",
+    "esbuild": "0.28.1"
+  },
   "dependencies": {
     "@expo/config": "56.0.9",
     "@expo/prebuild-config": "56.0.16",
