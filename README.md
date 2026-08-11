@@ -12,6 +12,8 @@ Run the command from the app directory you want to inspect:
 npx list-config-plugins@latest
 ```
 
+The CLI requires Node.js 20 or newer. It ships without production dependencies and uses the Expo configuration tooling already installed in the inspected project, so JavaScript and TypeScript Expo configs are evaluated by the project's matching Expo version.
+
 ## What It Shows
 
 - Plugins already listed in your Expo config

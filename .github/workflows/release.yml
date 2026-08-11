@@ -10,6 +10,9 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x, 24.x]
     env:
       NODE_ENV: production
       CI: true
@@ -19,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 22.x
+          node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org
 
       - name: Set up Bun

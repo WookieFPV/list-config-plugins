@@ -1,5 +1,15 @@
-import { findWorkspacePackagesSync, findWorkspaceRootSync } from "@rnx-kit/tools-workspaces";
+import { dirname, join } from "node:path";
 
-export const nodeModulesFolders = [findWorkspaceRootSync(), ...findWorkspacePackagesSync()]
-    .filter(Boolean)
-    .map((path) => `${path}/node_modules`);
+const findNodeModulesFolders = (startPath: string): string[] => {
+    const folders: string[] = [];
+    let currentPath = startPath;
+
+    while (true) {
+        folders.push(join(currentPath, "node_modules"));
+        const parentPath = dirname(currentPath);
+        if (parentPath === currentPath) return folders;
+        currentPath = parentPath;
+    }
+};
+
+export const nodeModulesFolders = findNodeModulesFolders(process.cwd());

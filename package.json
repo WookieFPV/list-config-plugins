@@ -24,6 +24,9 @@
   },
   "license": "MIT",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "bin": {
     "list-config-plugins": "dist/cli.js"
   },
@@ -34,24 +37,23 @@
   "scripts": {
     "build": "tsup",
     "build:dev": "tsup --watch",
+    "test": "bun run build && bun test tests/cli.integration.test.ts tests/package.integration.test.ts",
     "updateThirdPartyPlugins": "bun src/thirdPartyPlugins/runUpdateThirdPartyPluginList.ts",
     "lint": "bunx biome check --fix",
     "lint:CI": "bunx biome check",
     "typecheck": "tsc",
     "release": "changeset publish",
-    "prepublishOnly": "bun i && bun run lint:CI && tsc && bun run build"
+    "prepublishOnly": "bun i && bun run lint:CI && tsc && bun run test"
   },
   "overrides": {
     "uuid": "11.1.1",
     "esbuild": "0.28.1"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@expo/config": "56.0.9",
     "@expo/prebuild-config": "56.0.16",
-    "@rnx-kit/tools-workspaces": "0.2.4",
-    "@stricli/core": "1.3.0"
-  },
-  "devDependencies": {
+    "@stricli/core": "1.3.0",
     "@biomejs/biome": "2.5.7",
     "@changesets/cli": "2.31.1",
     "@total-typescript/ts-reset": "0.6.1",

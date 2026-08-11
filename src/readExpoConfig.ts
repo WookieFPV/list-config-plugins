@@ -1,25 +1,21 @@
-import { createRequire } from "node:module";
-import path from "node:path";
-import { getConfig } from "@expo/config";
+import type { getConfig } from "@expo/config";
 import type { CommandFlags } from "./cli/impl";
+import { loadProjectExpoModule } from "./loadProjectExpoModule";
 
-const getProjectConfigReader = (projectRoot: string): typeof getConfig => {
-    try {
-        const projectRequire = createRequire(path.join(projectRoot, "package.json"));
-        const projectExpoConfig = projectRequire("@expo/config") as { getConfig?: typeof getConfig };
-        if (projectExpoConfig.getConfig) {
-            return projectExpoConfig.getConfig;
-        }
-    } catch {
-        // Fall back to this package's @expo/config when the app does not expose one.
-    }
-    return getConfig;
+type ExpoConfigModule = {
+    getConfig?: typeof getConfig;
+};
+
+const loadProjectExpoConfig = (projectRoot: string): typeof getConfig => {
+    const configModule = loadProjectExpoModule(projectRoot, "@expo/config") as ExpoConfigModule;
+    if (!configModule.getConfig) throw new Error("The project's @expo/config package does not export getConfig");
+    return configModule.getConfig;
 };
 
 export const readExpoConfig = (options: CommandFlags) => {
     try {
         const projectRoot = process.cwd();
-        return getProjectConfigReader(projectRoot)(projectRoot, { skipSDKVersionRequirement: true });
+        return loadProjectExpoConfig(projectRoot)(projectRoot, { skipSDKVersionRequirement: true });
     } catch (e) {
         if (options.debug) {
             console.warn(`Error while reading config file:\n"${e instanceof Error ? e.message : ""}"\n`);

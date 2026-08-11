@@ -1,7 +1,28 @@
-import { getLegacyExpoPlugins } from "@expo/prebuild-config";
+import type { getLegacyExpoPlugins } from "@expo/prebuild-config";
 import { hasFirstPartyPlugin } from "../firstPartyPlugins/hasPlugin";
+import { loadProjectExpoModule } from "../loadProjectExpoModule";
 import { hasThirdPartyPlugin, thirdPartyPluginPrefix } from "../thirdPartyPlugins/communityConfigPlugins";
 import type { ExpoCfg, ExpoPlugin, UsageType } from "../types/types";
+
+type ExpoPrebuildConfigModule = {
+    getLegacyExpoPlugins?: typeof getLegacyExpoPlugins;
+};
+
+let legacyExpoPlugins: string[] | undefined;
+
+const getProjectLegacyExpoPlugins = (): string[] => {
+    if (legacyExpoPlugins) return legacyExpoPlugins;
+    try {
+        const prebuildConfig = loadProjectExpoModule(
+            process.cwd(),
+            "@expo/prebuild-config",
+        ) as ExpoPrebuildConfigModule;
+        legacyExpoPlugins = prebuildConfig.getLegacyExpoPlugins?.() ?? [];
+    } catch {
+        legacyExpoPlugins = [];
+    }
+    return legacyExpoPlugins;
+};
 
 const isPluginUsedStr = (pluginStr: string, pkg: string) => {
     if (pluginStr.startsWith(pkg)) return true;
@@ -24,7 +45,7 @@ export const getPluginImportType = (config: ExpoCfg, pkg: string): UsageType => 
     const isManuallyIncluded = isPluginIncludedUsed(config.exp.plugins, pkg);
     if (isManuallyIncluded) return "yes";
 
-    const isAutoIncluded = getLegacyExpoPlugins().some((plugin) => plugin.startsWith(pkg));
+    const isAutoIncluded = getProjectLegacyExpoPlugins().some((plugin) => plugin.startsWith(pkg));
     if (isAutoIncluded) return "auto";
 
     const hasThirdParty = hasThirdPartyPlugin(pkg);
