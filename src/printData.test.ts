@@ -28,8 +28,8 @@ describe("printPackages", () => {
         ]);
 
         expect(output).toContain("Config Plugin Overview:");
-        expect(output.indexOf("Used plugins:")).toBeLessThan(output.indexOf("Bundled with expo:"));
-        expect(output.indexOf("Bundled with expo:")).toBeLessThan(output.indexOf("Unused plugins:"));
+        expect(output.indexOf("Used plugins:")).toBeLessThan(output.indexOf("Bundled with Expo:"));
+        expect(output.indexOf("Bundled with Expo:")).toBeLessThan(output.indexOf("Unused plugins:"));
         expect(output.indexOf("Unused plugins:")).toBeLessThan(output.indexOf("Unused third party config plugin:"));
     });
 
@@ -37,7 +37,7 @@ describe("printPackages", () => {
         const output = captureOutput([{ name: "used-pkg", usage: "yes" }]);
 
         expect(output).toContain("🟩  used-pkg");
-        expect(output).not.toContain("Bundled with expo:");
+        expect(output).not.toContain("Bundled with Expo:");
         expect(output).not.toContain("Unused plugins:");
     });
 

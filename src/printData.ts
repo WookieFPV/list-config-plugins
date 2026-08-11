@@ -9,7 +9,7 @@ const emojiMapping: Record<UsageType, string> = {
 
 const labelMapping: Record<UsageType, string> = {
     yes: "Used plugins:",
-    auto: "Bundled with expo:",
+    auto: "Bundled with Expo:",
     no: "Unused plugins:",
     noButThirdParty: "Unused third party config plugin:",
 };

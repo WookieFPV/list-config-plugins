@@ -5,7 +5,7 @@ import type { ExpoCfg, PackageInfo } from "../types/types.js";
 import { getPluginImportType, hasConfigPlugin } from "./detectionHelpers.js";
 
 export const getPackagePluginList = (config: ExpoCfg, options: CommandFlags): Array<PackageInfo> => {
-    if (!config.pkg.dependencies) throw Error("No dependencies could be found by expo");
+    if (!config.pkg.dependencies) throw Error("No dependencies could be found by Expo");
     const deps = Object.keys(config.pkg.dependencies);
     if (options.debug) console.debug("List of dependencies:", JSON.stringify(deps, null, 2));
 

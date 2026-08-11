@@ -30,7 +30,7 @@ Used plugins:
 🟩  expo-splash-screen
 🟩  react-native-compressor
 
-Bundled with expo:
+Bundled with Expo:
 📦  expo-camera
 📦  expo-dev-client
 📦  expo-file-system
