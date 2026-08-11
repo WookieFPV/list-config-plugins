@@ -1,6 +1,6 @@
 {
   "name": "list-config-plugins",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "Find Expo config plugins in your dependencies and see which ones your app already uses.",
   "author": {
     "name": "WookieFPV (Lukas Müller)",
