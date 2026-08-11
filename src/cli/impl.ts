@@ -6,5 +6,5 @@ export interface CommandFlags {
 }
 
 export default async function (this: LocalContext, flags: CommandFlags): Promise<void> {
-    listConfigPlugins(flags);
+    await listConfigPlugins(flags);
 }

@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { nodeModulesFolders } from "./nodeModulesFolders";
+import { getNodeModulesFolders } from "./nodeModulesFolders";
 
 export const hasFirstPartyPlugin = (pkg: string) =>
-    nodeModulesFolders.some((path) => fs.existsSync(`${path}/${pkg}/app.plugin.js`));
+    getNodeModulesFolders().some((path) => fs.existsSync(`${path}/${pkg}/app.plugin.js`));

@@ -13,8 +13,8 @@ const isPluginUsed = (plugin: NonNullable<ExpoPlugin>[0], pkg: string): boolean 
     // startsWith is used because some plugins have a suffix for their config plugin name. e.g. @sentry/react-native has @sentry/react-native/expo as config plugin name
     if (typeof plugin === "string") return isPluginUsedStr(plugin, pkg);
 
-    if (plugin[0] && isPluginUsedStr(plugin[0], pkg)) return true;
-    return plugin[0]?.startsWith(pkg) ?? false;
+    // Tuple form: [pluginName, pluginOptions]
+    return typeof plugin[0] === "string" && isPluginUsedStr(plugin[0], pkg);
 };
 
 const isPluginIncludedUsed = (pluginList: ExpoPlugin, pkg: string) =>

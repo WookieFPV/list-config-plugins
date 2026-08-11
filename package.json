@@ -35,6 +35,7 @@
     "build": "tsup",
     "build:dev": "tsup --watch",
     "updateThirdPartyPlugins": "bun src/thirdPartyPlugins/runUpdateThirdPartyPluginList.ts",
+    "test": "bun test src",
     "lint": "bunx biome check --fix",
     "lint:CI": "bunx biome check",
     "typecheck": "tsc",

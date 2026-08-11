@@ -1,5 +1,5 @@
 import type { CommandFlags } from "../cli/impl";
-import { nodeModulesFolders } from "../firstPartyPlugins/nodeModulesFolders";
+import { getNodeModulesFolders } from "../firstPartyPlugins/nodeModulesFolders";
 import { getConfigPluginInfoText } from "../thirdPartyPlugins/communityConfigPlugins";
 import type { ExpoCfg, PackageInfo } from "../types/types.js";
 import { getPluginImportType, hasConfigPlugin } from "./detectionHelpers.js";
@@ -10,7 +10,10 @@ export const getPackagePluginList = (config: ExpoCfg, options: CommandFlags): Ar
     if (options.debug) console.debug("List of dependencies:", JSON.stringify(deps, null, 2));
 
     if (options.debug)
-        console.debug("Searching for config plugins in these folders:", JSON.stringify(nodeModulesFolders, null, 2));
+        console.debug(
+            "Searching for config plugins in these folders:",
+            JSON.stringify(getNodeModulesFolders(), null, 2),
+        );
 
     const depsWithConfigPlugin = deps.filter(hasConfigPlugin);
     return depsWithConfigPlugin.map((name): PackageInfo => {
