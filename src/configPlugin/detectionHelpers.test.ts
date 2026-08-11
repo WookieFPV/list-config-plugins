@@ -55,6 +55,16 @@ describe("getPluginImportType", () => {
             const config = configWithPlugins(["expo-notifications"]);
             expect(getPluginImportType(config, "react-native-compressor")).toBe("no");
         });
+
+        it("does not match a plugin entry that merely shares a name prefix", () => {
+            const config = configWithPlugins(["react-native-compressor-extra"]);
+            expect(getPluginImportType(config, "react-native-compressor")).toBe("no");
+        });
+
+        it("does not match a prefixed tuple entry", () => {
+            const config = configWithPlugins([["react-native-compressor-extra", {}]]);
+            expect(getPluginImportType(config, "react-native-compressor")).toBe("no");
+        });
     });
 
     describe("malformed plugin lists", () => {
