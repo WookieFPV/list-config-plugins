@@ -92,13 +92,17 @@ jobs:
 
       - name: Create release PR or publish
         id: changesets
-        uses: changesets/action@v1
+        # v2 is required by @changesets/cli v3: the action no longer greps the
+        # publish output for "New tag:" lines (v3 stopped printing them) and
+        # instead reads the file the CLI writes to $CHANGESETS_OUTPUT
+        uses: changesets/action@v2
+        # no NPM_TOKEN on purpose: v2 never touches .npmrc, so npm authenticates
+        # via OIDC trusted publishing
         with:
-          version: bun changeset version
-          publish: bun run release
-          commit: "chore: version packages"
-          title: "chore: version packages"
-        # no NPM_TOKEN on purpose: without it changesets/action leaves the npm
-        # credentials alone and npm authenticates via OIDC instead
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # must be passed as an input; v2 errors out if GITHUB_TOKEN is set in
+          # the environment instead
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version-script: bun changeset version
+          publish-script: bun run release
+          commit-message: "chore: version packages"
+          pr-title: "chore: version packages"
