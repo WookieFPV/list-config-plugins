@@ -24,7 +24,7 @@ npx list-config-plugins@latest
 ```text
 Config Plugin Overview:
 
-Used Plugins:
+Used plugins:
 🟩  expo-notifications
 🟩  expo-screen-orientation
 🟩  expo-splash-screen
@@ -35,7 +35,7 @@ Bundled with Expo:
 📦  expo-dev-client
 📦  expo-file-system
 
-Unused Plugins:
+Unused plugins:
 🟥  @sentry/react-native
 
 Unused third party config plugin:

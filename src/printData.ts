@@ -9,7 +9,7 @@ const emojiMapping: Record<UsageType, string> = {
 
 const labelMapping: Record<UsageType, string> = {
     yes: "Used plugins:",
-    auto: "Bundled with expo:",
+    auto: "Bundled with Expo:",
     no: "Unused plugins:",
     noButThirdParty: "Unused third party config plugin:",
 };
@@ -18,7 +18,9 @@ const printGroup = (packages: PackageInfo[], group: UsageType) => {
     const usedPackages = packages.filter((pkg) => pkg.usage === group);
     if (!usedPackages.length) return;
     console.log(`\n${labelMapping[group]}`);
-    console.log(usedPackages.map((pkg) => `${emojiMapping[pkg.usage]}  ${pkg.name} ${pkg.info ?? ""}`).join("\n"));
+    const formatPackage = (pkg: PackageInfo) =>
+        `${emojiMapping[pkg.usage]}  ${pkg.name}${pkg.info ? ` ${pkg.info}` : ""}`;
+    console.log(usedPackages.map(formatPackage).join("\n"));
 };
 
 export const printPackages = (packages: PackageInfo[]) => {
