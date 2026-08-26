@@ -65,7 +65,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-      # required for npm trusted publishing (OIDC)
       id-token: write
     env:
       NODE_ENV: production
@@ -78,7 +77,6 @@ jobs:
         with:
           node-version: 22.x
 
-      # trusted publishing needs npm >= 11.5.1, node 22 still ships npm 10
       - name: Upgrade npm
         run: npm install -g npm@latest
 
@@ -92,11 +90,10 @@ jobs:
 
       - name: Create release PR or publish
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         with:
-          version: bun changeset version
-          publish: bun run release
-          commit: "chore: version packages"
-          title: "chore: version packages"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version-script: bun changeset version
+          publish-script: bun run release
+          commit-message: "chore: version packages"
+          pr-title: "chore: version packages"
