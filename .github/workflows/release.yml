@@ -98,7 +98,5 @@ jobs:
           publish: bun run release
           commit: "chore: version packages"
           title: "chore: version packages"
-        # no NPM_TOKEN on purpose: without it changesets/action leaves the npm
-        # credentials alone and npm authenticates via OIDC instead
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
