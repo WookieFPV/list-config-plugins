@@ -65,7 +65,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-      # required for npm trusted publishing (OIDC)
       id-token: write
     env:
       NODE_ENV: production
@@ -78,7 +77,6 @@ jobs:
         with:
           node-version: 22.x
 
-      # trusted publishing needs npm >= 11.5.1, node 22 still ships npm 10
       - name: Upgrade npm
         run: npm install -g npm@latest
 
@@ -92,15 +90,8 @@ jobs:
 
       - name: Create release PR or publish
         id: changesets
-        # v2 is required by @changesets/cli v3: the action no longer greps the
-        # publish output for "New tag:" lines (v3 stopped printing them) and
-        # instead reads the file the CLI writes to $CHANGESETS_OUTPUT
         uses: changesets/action@v2
-        # no NPM_TOKEN on purpose: v2 never touches .npmrc, so npm authenticates
-        # via OIDC trusted publishing
         with:
-          # must be passed as an input; v2 errors out if GITHUB_TOKEN is set in
-          # the environment instead
           github-token: ${{ secrets.GITHUB_TOKEN }}
           version-script: bun changeset version
           publish-script: bun run release
