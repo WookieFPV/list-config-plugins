@@ -13,6 +13,12 @@ jobs:
     env:
       NODE_ENV: production
       CI: true
+      # the E2E tests run `npx <tarball>`; skip npm audit there so CI does not
+      # depend on the registry's bulk-advisories endpoint latency (it has been
+      # observed taking 60s+ per request, blowing the 120s test timeout)
+      NPM_CONFIG_AUDIT: "false"
+      NPM_CONFIG_FUND: "false"
+      NPM_CONFIG_UPDATE_NOTIFIER: "false"
 
     steps:
       - uses: actions/checkout@v6
