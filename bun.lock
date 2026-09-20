@@ -7,7 +7,7 @@
       "dependencies": {
         "@expo/config": "57.0.9",
         "@expo/prebuild-config": "57.0.16",
-        "@rnx-kit/tools-workspaces": "0.2.4",
+        "@rnx-kit/tools-workspaces": "0.2.5",
         "@stricli/core": "1.3.0",
       },
       "devDependencies": {
@@ -224,7 +224,7 @@
 
     "@react-native/normalize-colors": ["@react-native/normalize-colors@0.86.3", "", {}, "sha512-Cv3CDkprb67GrzuaS9BGbBJC/6G4lIw3nyKOHRKTqTTum4bn37y5+R0Z04L8mcbQN85eEohNrRwb7IOM4j6uvg=="],
 
-    "@rnx-kit/tools-workspaces": ["@rnx-kit/tools-workspaces@0.2.4", "", { "dependencies": { "fast-glob": "^3.2.7", "find-up": "^5.0.0", "js-yaml": "^5.2.2", "micromatch": "^4.0.0", "strip-json-comments": "^3.1.1" } }, "sha512-lga+AK6rrrwRZxgGnlyy4PcXKcsM1+Nzfobl4l7OolT5LaUIaUSlbSqJodThTXlWTopyhEQY++EDc3tAo5BPVQ=="],
+    "@rnx-kit/tools-workspaces": ["@rnx-kit/tools-workspaces@0.2.5", "", { "dependencies": { "fast-glob": "^3.2.7", "find-up": "^5.0.0", "js-yaml": "^5.2.3", "micromatch": "^4.0.0", "strip-json-comments": "^3.1.1" } }, "sha512-EEl5O7zBbRHWcNIN2NHggjVZug9uvBd6B6mjqYaWfttThDRiQc8tRi6KFI5hGoglX8ebVzOVqWV9tO8pWXNiDw=="],
 
     "@rollup/rollup-android-arm-eabi": ["@rollup/rollup-android-arm-eabi@4.63.2", "", { "os": "android", "cpu": "arm" }, "sha512-Xa6RDoWa+hNiX6PgsljlH6W75RaONx3y6PVlbLhkEWW+GaPQ3dP5gwbL/erAzQHWwkvW5UxdD5l87Qx2FAQ/4A=="],
 
