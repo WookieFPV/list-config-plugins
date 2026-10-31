@@ -42,28 +42,20 @@
     "release": "changeset publish",
     "prepublishOnly": "bun i && bun run lint:CI && tsc && bun run build"
   },
-  "overrides": {
-    "uuid": "14.0.3",
-    "esbuild": "0.28.2",
-    "brace-expansion": "5.0.12",
-    "browserslist": "4.29.5",
-    "@xmldom/xmldom@^0.8.8": "0.8.15",
-    "@xmldom/xmldom@^0.9.10": "0.9.12"
-  },
   "dependencies": {
-    "@expo/config": "57.0.10",
-    "@expo/prebuild-config": "57.0.19",
+    "@expo/config": "58.0.10",
+    "@expo/prebuild-config": "58.0.18",
     "@rnx-kit/tools-workspaces": "0.2.6",
     "@stricli/core": "1.3.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.3",
+    "@biomejs/biome": "2.6.4",
     "@changesets/cli": "3.0.3",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/bun": "1.4.4",
-    "axios": "1.20.0",
+    "axios": "1.21.0",
     "lefthook": "2.2.2",
-    "tsup": "8.5.1",
+    "tsup": "9.0.0",
     "typescript": "7.0.2",
     "zx": "8.8.5"
   }
