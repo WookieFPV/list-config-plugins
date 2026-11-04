@@ -28,5 +28,6 @@
       "indentWidth": 4
     }
   },
-  "json": { "formatter": { "indentWidth": 2 } }
+  "json": { "formatter": { "indentWidth": 2 } },
+  "markdown": { "formatter": { "enabled": false } }
 }
